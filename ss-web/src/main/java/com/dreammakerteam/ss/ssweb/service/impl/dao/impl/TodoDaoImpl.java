@@ -2,7 +2,7 @@ package com.dreammakerteam.ss.ssweb.service.impl.dao.impl;
 
 import com.dreammakerteam.ss.ssweb.service.impl.dao.api.TodoDao;
 import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.TodoEntity;
-import com.dreammakerteam.ss.ssweb.service.impl.dao.repository.TodoRepository;
+import com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository.TodoRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;

@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import java.text.SimpleDateFormat;
 
@@ -21,7 +22,10 @@ public class SsWebApplication {
         SpringApplication.run(SsWebApplication.class, args);
     }
 
-
+    @Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        return new ServerEndpointExporter();
+    }
 //
 //    @Bean
 //    public HttpMessageConverters customConverters() {

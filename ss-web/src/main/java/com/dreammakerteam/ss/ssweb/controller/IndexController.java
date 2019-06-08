@@ -6,21 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/test")
-public class TestController {
+@RequestMapping
+public class IndexController {
 
-
-    private static String temp = null;
 
 
     @GetMapping
-    public String getInfo() {
-        return temp;
-    }
-
-
-    public String setInfo(String info) {
-        return temp = info;
+    public String index() {
+        return "adadwadw";
     }
 
 
