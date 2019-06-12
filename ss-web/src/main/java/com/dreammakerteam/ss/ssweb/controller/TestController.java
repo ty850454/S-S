@@ -9,19 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
 
-
     private static String temp = null;
-
-
-    @GetMapping
+    @GetMapping("/getInfo")
     public String getInfo() {
         return temp;
     }
 
-
+    @GetMapping("/setInfo")
     public String setInfo(String info) {
         return temp = info;
     }
-
 
 }
