@@ -1,25 +1,22 @@
 package com.dreammakerteam.ss.ssweb;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
-import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
-import java.text.SimpleDateFormat;
-
+/**
+ * web app 启动类
+ *
+ * @author xy
+ */
 @SpringBootApplication
 @EnableJpaAuditing
-public class SsWebApplication {
+public class WebApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SsWebApplication.class, args);
+        SpringApplication.run(WebApplication.class, args);
     }
 
     @Bean
