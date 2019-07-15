@@ -11,6 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 此过滤器主要是验证令牌的合法性，如果令牌合法，则获取用户信息，并且存入
+ * @author sy
+ */
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     @Override

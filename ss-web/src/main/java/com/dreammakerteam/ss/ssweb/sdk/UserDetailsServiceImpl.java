@@ -1,3 +1,4 @@
+/*
 package com.dreammakerteam.ss.ssweb.sdk;
 
 import lombok.extern.slf4j.Slf4j;
@@ -21,3 +22,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new User(username, "123456", AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.dreammakerteam.ss.ssweb.sdk;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,11 +41,8 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
         authenticationManagerBuilder.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
     }
 
-    /**
-     * @describe spring Security的核心配置
-     * @date 2018/10/29
-     * @author Wang Chen Chen
-     */
+    */
+/*
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -82,3 +80,5 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
+
+*/

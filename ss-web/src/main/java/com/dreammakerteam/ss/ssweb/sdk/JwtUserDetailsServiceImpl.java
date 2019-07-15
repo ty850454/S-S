@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+/*
 
 @Component
 public class JwtUserDetailsServiceImpl implements UserDetailsService {
@@ -16,3 +17,4 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         return new JwtUser();
     }
 }
+*/

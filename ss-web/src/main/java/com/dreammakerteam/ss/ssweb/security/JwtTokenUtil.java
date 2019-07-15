@@ -1,25 +1,22 @@
 package com.dreammakerteam.ss.ssweb.sdk;
 
+import com.dreammakerteam.ss.ssweb.security.JwtUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@Data
-@ConfigurationProperties(prefix = "jwt")
-@Component
+
 public class JwtTokenUtil {
 
     private String secret;
 
-    private Long expiration;
+    // 过期时间 毫秒
+    private Long expiration = 10000L;
 
     private String header;
 
@@ -58,8 +55,8 @@ public class JwtTokenUtil {
      */
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>(2);
-        claims.put("sub", userDetails.getUsername());
-        claims.put("created", new Date());
+        claims.put(Claims.SUBJECT, userDetails.getUsername());
+        claims.put(Claims.ISSUED_AT, new Date());
         return generateToken(claims);
     }
 
@@ -92,7 +89,7 @@ public class JwtTokenUtil {
             Date expiration = claims.getExpiration();
             return expiration.before(new Date());
         } catch (Exception e) {
-            return false;
+            return true;
         }
     }
 
@@ -106,7 +103,7 @@ public class JwtTokenUtil {
         String refreshedToken;
         try {
             Claims claims = getClaimsFromToken(token);
-            claims.put("created", new Date());
+            claims.put(Claims.ISSUED_AT, new Date());
             refreshedToken = generateToken(claims);
         } catch (Exception e) {
             refreshedToken = null;
