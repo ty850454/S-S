@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.ssweb.sdk.utils;
+package com.dreammakerteam.ss.core.sdk.utils;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;

@@ -1,12 +1,12 @@
 package com.dreammakerteam.ss.ssweb.controller;
 
-import com.dreammakerteam.ss.ssweb.sdk.web.HttpResponse;
-import com.dreammakerteam.ss.ssweb.sdk.web.HttpResponseCode;
+import com.dreammakerteam.ss.core.sdk.web.HttpResponse;
+import com.dreammakerteam.ss.core.sdk.web.HttpResponseCode;
 import com.dreammakerteam.ss.ssweb.service.dto.ServiceListVO;
 import com.dreammakerteam.ss.ssweb.service.dto.UseLogVO;
-import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.ServiceDO;
-import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.UseLogDO;
-import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.UserServiceDO;
+import com.dreammakerteam.ss.core.dao.entity.ServiceDO;
+import com.dreammakerteam.ss.core.dao.entity.ServiceUseLogDO;
+import com.dreammakerteam.ss.core.dao.entity.UserServiceDO;
 import com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository.ServiceDORepository;
 import com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository.UseLogDORepository;
 import com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository.UserServiceDORepository;
@@ -92,7 +92,7 @@ public class ServiceController {
         one.setQuantity(one.getQuantity() - 1);
         userServiceDORepository.save(one);
 
-        UseLogDO log = new UseLogDO();
+        ServiceUseLogDO log = new ServiceUseLogDO();
         log.setUserServiceId(one.getId());
         log.setServiceId(one.getServiceId());
         log.setWxUserId(one.getWxUserId());
@@ -102,17 +102,17 @@ public class ServiceController {
 
     @GetMapping(value = "/logs", params = "use")
     public HttpResponse getLog(Long userId) {
-        List<UseLogDO> byUser = useLogDORepository.getByUserServiceId(userId);
-        List<Long> serviceIds = byUser.stream().map(UseLogDO::getServiceId).collect(Collectors.toList());
+        List<ServiceUseLogDO> byUser = useLogDORepository.getByUserServiceId(userId);
+        List<Long> serviceIds = byUser.stream().map(ServiceUseLogDO::getServiceId).collect(Collectors.toList());
         List<ServiceDO> allById = serviceDORepository.findAllById(serviceIds);
         Map<Long, ServiceDO> collect = allById.stream().collect(Collectors.toMap(ServiceDO::getId, o -> o));
 
         ArrayList<UseLogVO> result = new ArrayList<>();
-        for (UseLogDO useLogDO : byUser) {
+        for (ServiceUseLogDO serviceUseLogDO : byUser) {
             UseLogVO temp = new UseLogVO();
-            ServiceDO serviceDO = collect.get(useLogDO.getServiceId());
+            ServiceDO serviceDO = collect.get(serviceUseLogDO.getServiceId());
 
-            Instant instant = useLogDO.getCreateTime().toInstant();
+            Instant instant = serviceUseLogDO.getCreateTime().toInstant();
             temp.setDate(LocalDate.from(instant).format(DateTimeFormatter.ISO_DATE));
             temp.setServiceName(serviceDO != null ? serviceDO.getName() : "-");
         }

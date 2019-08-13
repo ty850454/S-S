@@ -1,6 +1,6 @@
 package com.dreammakerteam.ss.ssweb.service.impl;
 
-import com.dreammakerteam.ss.ssweb.sdk.utils.DtoUtil;
+import com.dreammakerteam.ss.core.sdk.utils.DtoUtil;
 import com.dreammakerteam.ss.ssweb.service.api.TodoService;
 import com.dreammakerteam.ss.ssweb.service.dto.TodoDTO;
 import com.dreammakerteam.ss.ssweb.service.impl.dao.api.TodoDao;

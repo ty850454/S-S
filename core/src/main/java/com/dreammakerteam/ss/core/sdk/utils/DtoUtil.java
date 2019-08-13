@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.ssweb.sdk.utils;
+package com.dreammakerteam.ss.core.sdk.utils;
 
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.objenesis.ObjenesisStd;

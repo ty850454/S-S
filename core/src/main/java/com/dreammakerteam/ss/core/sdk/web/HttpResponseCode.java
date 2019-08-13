@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.ssweb.sdk.web;
+package com.dreammakerteam.ss.core.sdk.web;
 
 
 import lombok.AllArgsConstructor;

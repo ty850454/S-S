@@ -1,6 +1,5 @@
-package com.dreammakerteam.ss.ssweb.service.enums;
+package com.dreammakerteam.ss.api.enums;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 /**
@@ -16,10 +15,9 @@ public enum ValidEnum {
     VALID(1),
     ;
 
-    @JsonValue
-    private Integer value;
+    private int value;
 
-    ValidEnum(Integer value) {
+    ValidEnum(int value) {
         this.value = value;
     }
 }

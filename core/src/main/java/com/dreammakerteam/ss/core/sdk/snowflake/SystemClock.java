@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.ssweb.sdk.snowflake;
+package com.dreammakerteam.ss.core.sdk.snowflake;
 
 
 import java.util.concurrent.ScheduledExecutorService;

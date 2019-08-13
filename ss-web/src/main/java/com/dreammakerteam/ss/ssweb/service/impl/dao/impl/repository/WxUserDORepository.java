@@ -1,9 +1,9 @@
 package com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository;
 
-import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.WxUserDO;
+import com.dreammakerteam.ss.core.dao.entity.UserDO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface WxUserDORepository extends JpaRepository<WxUserDO, Long> {
+public interface WxUserDORepository extends JpaRepository<UserDO, Long> {
 
-    WxUserDO getByOpenid(String openId);
+    UserDO getByOpenid(String openId);
 }

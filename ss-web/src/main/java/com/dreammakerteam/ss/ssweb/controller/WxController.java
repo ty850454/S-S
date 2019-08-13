@@ -1,8 +1,8 @@
 package com.dreammakerteam.ss.ssweb.controller;
 
-import com.dreammakerteam.ss.ssweb.sdk.web.HttpResponse;
-import com.dreammakerteam.ss.ssweb.sdk.web.HttpResponseCode;
-import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.WxUserDO;
+import com.dreammakerteam.ss.core.sdk.web.HttpResponse;
+import com.dreammakerteam.ss.core.sdk.web.HttpResponseCode;
+import com.dreammakerteam.ss.core.dao.entity.UserDO;
 import com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository.WxUserDORepository;
 import com.dreammakerteam.ss.ssweb.wx.WxHelper;
 import com.dreammakerteam.ss.ssweb.wx.dto.LoginRes;
@@ -26,12 +26,12 @@ public class WxController {
             return HttpResponse.failure(HttpResponseCode.B_90110);
         }
 
-        WxUserDO wxUserDO = wxUserDORepository.getByOpenid(login.getOpenid());
-        if (wxUserDO == null) {
-            wxUserDO = new WxUserDO();
-            wxUserDO.setOpenid(login.getOpenid());
-            wxUserDORepository.save(wxUserDO);
+        UserDO userDO = wxUserDORepository.getByOpenid(login.getOpenid());
+        if (userDO == null) {
+            userDO = new UserDO();
+            userDO.setOpenid(login.getOpenid());
+            wxUserDORepository.save(userDO);
         }
-        return HttpResponse.success(wxUserDO.getStringId());
+        return HttpResponse.success(userDO.getStringId());
     }
 }

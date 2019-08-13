@@ -2,8 +2,8 @@ package com.dreammakerteam.ss.ssweb.wx;
 
 
 
-import com.dreammakerteam.ss.ssweb.sdk.utils.HexUtil;
-import com.dreammakerteam.ss.ssweb.sdk.utils.OkHttpUtil;
+import com.dreammakerteam.ss.core.sdk.utils.HexUtil;
+import com.dreammakerteam.ss.core.sdk.utils.OkHttpUtil;
 import com.dreammakerteam.ss.ssweb.wx.dto.AccessToken;
 import com.dreammakerteam.ss.ssweb.wx.dto.LoginRes;
 

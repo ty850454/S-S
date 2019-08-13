@@ -1,6 +1,6 @@
 package com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository;
 
-import com.dreammakerteam.ss.ssweb.service.impl.dao.entity.UserServiceDO;
+import com.dreammakerteam.ss.core.dao.entity.UserServiceDO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

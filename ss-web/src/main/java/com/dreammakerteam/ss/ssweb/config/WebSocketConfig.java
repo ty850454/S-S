@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.ssweb;
+package com.dreammakerteam.ss.ssweb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

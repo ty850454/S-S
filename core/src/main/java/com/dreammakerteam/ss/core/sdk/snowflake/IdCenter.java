@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.ssweb.sdk.snowflake;
+package com.dreammakerteam.ss.core.sdk.snowflake;
 
 /**
  * id中心，发号器

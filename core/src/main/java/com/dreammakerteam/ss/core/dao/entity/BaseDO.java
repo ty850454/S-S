@@ -1,7 +1,7 @@
-package com.dreammakerteam.ss.ssweb.service.impl.dao.entity;
+package com.dreammakerteam.ss.core.dao.entity;
 
-import com.dreammakerteam.ss.ssweb.sdk.serializer.LongIdJsonSerializer;
-import com.dreammakerteam.ss.ssweb.service.enums.ValidEnum;
+import com.dreammakerteam.ss.api.enums.ValidEnum;
+import com.dreammakerteam.ss.core.sdk.serializer.LongIdJsonSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,12 +24,11 @@ import java.util.Date;
 @ToString
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-abstract class BaseEntity {
+abstract class BaseDO {
 
     @Id
     @GeneratedValue(generator = "id")
-    @GenericGenerator(name = "id", strategy = "com.dreammakerteam.ss.ssweb.sdk.snowflake.IdGenerator")
-    @JsonSerialize(using = LongIdJsonSerializer.class)
+    @GenericGenerator(name = "id", strategy = "com.dreammakerteam.ss.core.sdk.snowflake.IdGenerator")
     private Long id;
 
     @Version
@@ -40,11 +39,11 @@ abstract class BaseEntity {
     private ValidEnum valid = ValidEnum.VALID;
 
     @CreatedDate
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false, columnDefinition = "TIMESTAMP")
     private Date createTime;
 
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TIMESTAMP")
     private Date updateTime;
 
     public String getStringId() {

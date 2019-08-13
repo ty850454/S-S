@@ -1,7 +1,7 @@
 package com.dreammakerteam.ss.ssweb.service.dto;
 
-import com.dreammakerteam.ss.ssweb.sdk.serializer.LongIdJsonSerializer;
-import com.dreammakerteam.ss.ssweb.service.enums.ValidEnum;
+import com.dreammakerteam.ss.core.sdk.serializer.LongIdJsonSerializer;
+import com.dreammakerteam.ss.api.enums.ValidEnum;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
