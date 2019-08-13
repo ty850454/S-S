@@ -32,6 +32,6 @@ public class WxController {
             wxUserDO.setOpenid(login.getOpenid());
             wxUserDORepository.save(wxUserDO);
         }
-        return HttpResponse.success(wxUserDO.getId());
+        return HttpResponse.success(wxUserDO.getStringId());
     }
 }

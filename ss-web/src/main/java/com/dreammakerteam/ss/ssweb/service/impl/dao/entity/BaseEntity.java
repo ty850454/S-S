@@ -47,4 +47,9 @@ abstract class BaseEntity {
     @Column(nullable = false)
     private Date updateTime;
 
+    public String getStringId() {
+        return id != null ? id.toString() : null;
+    }
+
+
 }
