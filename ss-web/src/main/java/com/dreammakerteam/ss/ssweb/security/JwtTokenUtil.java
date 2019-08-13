@@ -1,3 +1,4 @@
+/*
 package com.dreammakerteam.ss.ssweb.sdk;
 
 import com.dreammakerteam.ss.ssweb.security.JwtUser;
@@ -20,23 +21,27 @@ public class JwtTokenUtil {
 
     private String header;
 
-    /**
+    */
+/**
      * 从数据声明生成令牌
      *
      * @param claims 数据声明
      * @return 令牌
-     */
+     *//*
+
     private String generateToken(Map<String, Object> claims) {
         Date expirationDate = new Date(System.currentTimeMillis() + expiration);
         return Jwts.builder().setClaims(claims).setExpiration(expirationDate).signWith(SignatureAlgorithm.HS512, secret).compact();
     }
 
-    /**
+    */
+/**
      * 从令牌中获取数据声明
      *
      * @param token 令牌
      * @return 数据声明
-     */
+     *//*
+
     private Claims getClaimsFromToken(String token) {
         Claims claims;
         try {
@@ -47,12 +52,14 @@ public class JwtTokenUtil {
         return claims;
     }
 
-    /**
+    */
+/**
      * 生成令牌
      *
      * @param userDetails 用户
      * @return 令牌
-     */
+     *//*
+
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>(2);
         claims.put(Claims.SUBJECT, userDetails.getUsername());
@@ -60,12 +67,14 @@ public class JwtTokenUtil {
         return generateToken(claims);
     }
 
-    /**
+    */
+/**
      * 从令牌中获取用户名
      *
      * @param token 令牌
      * @return 用户名
-     */
+     *//*
+
     public String getUsernameFromToken(String token) {
         String username;
         try {
@@ -77,12 +86,14 @@ public class JwtTokenUtil {
         return username;
     }
 
-    /**
+    */
+/**
      * 判断令牌是否过期
      *
      * @param token 令牌
      * @return 是否过期
-     */
+     *//*
+
     public Boolean isTokenExpired(String token) {
         try {
             Claims claims = getClaimsFromToken(token);
@@ -93,12 +104,14 @@ public class JwtTokenUtil {
         }
     }
 
-    /**
+    */
+/**
      * 刷新令牌
      *
      * @param token 原令牌
      * @return 新令牌
-     */
+     *//*
+
     public String refreshToken(String token) {
         String refreshedToken;
         try {
@@ -111,13 +124,15 @@ public class JwtTokenUtil {
         return refreshedToken;
     }
 
-    /**
+    */
+/**
      * 验证令牌
      *
      * @param token       令牌
      * @param userDetails 用户
      * @return 是否有效
-     */
+     *//*
+
     public Boolean validateToken(String token, UserDetails userDetails) {
         JwtUser user = (JwtUser) userDetails;
         String username = getUsernameFromToken(token);
@@ -125,3 +140,4 @@ public class JwtTokenUtil {
     }
 
 }
+*/

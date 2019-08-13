@@ -1,3 +1,4 @@
+/*
 package com.dreammakerteam.ss.ssweb.sdk;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -43,3 +44,4 @@ public class UserDetailsImpl implements UserDetails {
         return false;
     }
 }
+*/

@@ -25,17 +25,17 @@ public class HttpResponse<T> {
     private T data;
 
     @SuppressWarnings("unused")
-    public HttpResponse<?> success() {
+    public static HttpResponse<?> success() {
         return success(null, null);
     }
 
     @SuppressWarnings("unused")
-    public HttpResponse<T> success(String msg) {
-        return success(msg, null);
+    public static <T> HttpResponse<T> success(T data) {
+        return success(null, data);
     }
 
     @SuppressWarnings({"unused", "WeakerAccess"})
-    public HttpResponse<T> success(String msg, T data) {
+    public static <T> HttpResponse<T> success(String msg, T data) {
         HttpResponse<T> response = new HttpResponse<>();
         response.setCode(HttpResponseCode.SUCCESS.getCode());
         response.setMsg(msg);
@@ -44,7 +44,7 @@ public class HttpResponse<T> {
     }
 
     @SuppressWarnings("unused")
-    public HttpResponse<?> failure(HttpResponseCode responseCode) {
+    public static HttpResponse<?> failure(HttpResponseCode responseCode) {
         return new HttpResponse<>();
     }
 

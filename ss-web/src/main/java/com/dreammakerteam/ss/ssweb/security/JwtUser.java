@@ -1,3 +1,4 @@
+/*
 package com.dreammakerteam.ss.ssweb.security;
 
 import lombok.Getter;
@@ -8,9 +9,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 
+*/
 /**
  * @author xuyang
- */
+ *//*
+
 @Getter
 @Setter
 public class JwtUser implements UserDetails {
@@ -39,3 +42,4 @@ public class JwtUser implements UserDetails {
         return false;
     }
 }
+*/
