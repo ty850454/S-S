@@ -37,7 +37,7 @@ abstract class BaseEntity {
     private Long version;
 
     @Column(nullable = false)
-    private ValidEnum valid;
+    private ValidEnum valid = ValidEnum.VALID;
 
     @CreatedDate
     @Column(updatable = false, nullable = false)
