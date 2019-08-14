@@ -10,7 +10,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 /**
- * 用户服务记录
+ * 服务记录
  *
  * @author xy
  */
@@ -18,10 +18,8 @@ import javax.persistence.Table;
 @Setter
 @ToString
 @Entity
-@Table(name = "wx_serviceUseLog", indexes = {
-        @Index(name="userServiceId",columnList="userServiceId"),
-        @Index(name="serviceId",columnList="serviceId"),
-        @Index(name="userId",columnList="userId")})
+@Table(name = "wx_serviceUseLog", indexes = {@Index(columnList="userServiceId"), @Index(columnList="serviceId"), @Index(columnList="userId")})
+@org.hibernate.annotations.Table(appliesTo = "wx_serviceUseLog", comment = "服务记录")
 public class ServiceUseLogDO extends BaseDO {
 
     @Column(nullable = false, columnDefinition = "bigint(20) COMMENT '关联用户服务卡id'")

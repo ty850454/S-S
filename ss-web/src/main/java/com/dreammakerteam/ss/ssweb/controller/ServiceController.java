@@ -1,7 +1,9 @@
 package com.dreammakerteam.ss.ssweb.controller;
 
+import com.dreammakerteam.ss.api.service.UserServiceService;
 import com.dreammakerteam.ss.core.sdk.web.HttpResponse;
 import com.dreammakerteam.ss.core.sdk.web.HttpResponseCode;
+import com.dreammakerteam.ss.ssweb.facade.UserServiceFacade;
 import com.dreammakerteam.ss.ssweb.service.dto.ServiceListVO;
 import com.dreammakerteam.ss.ssweb.service.dto.UseLogVO;
 import com.dreammakerteam.ss.core.dao.entity.ServiceDO;
@@ -13,6 +15,7 @@ import com.dreammakerteam.ss.ssweb.service.impl.dao.impl.repository.UserServiceD
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,35 +31,22 @@ import java.util.stream.Collectors;
 @RequestMapping("/service")
 public class ServiceController {
 
+    private UserServiceFacade userServiceFacade;
+    private UserServiceService userServiceService;
     private UserServiceDORepository userServiceDORepository;
     private ServiceDORepository serviceDORepository;
     private UseLogDORepository useLogDORepository;
-    public ServiceController(UserServiceDORepository userServiceDORepository, ServiceDORepository serviceDORepository, UseLogDORepository useLogDORepository) {
+    public ServiceController(UserServiceFacade userServiceFacade, UserServiceService userServiceService, UserServiceDORepository userServiceDORepository, ServiceDORepository serviceDORepository, UseLogDORepository useLogDORepository) {
+        this.userServiceFacade = userServiceFacade;
+        this.userServiceService = userServiceService;
         this.userServiceDORepository = userServiceDORepository;
         this.serviceDORepository = serviceDORepository;
         this.useLogDORepository = useLogDORepository;
     }
 
     @GetMapping
-    public HttpResponse getUserService(Long userId) {
-        List<UserServiceDO> byWxUserId = userServiceDORepository.getByWxUserId(userId);
-
-        List<Long> serviceIds = byWxUserId.stream().map(UserServiceDO::getServiceId).collect(Collectors.toList());
-        List<ServiceDO> allById = serviceDORepository.findAllById(serviceIds);
-        Map<Long, ServiceDO> collect = allById.stream().collect(Collectors.toMap(ServiceDO::getId, o -> o));
-
-        ArrayList<ServiceListVO> result = new ArrayList<>();
-        for (UserServiceDO userServiceDO : byWxUserId) {
-            ServiceListVO serviceListVO = new ServiceListVO();
-            result.add(serviceListVO);
-            ServiceDO serviceDO = collect.get(userServiceDO.getServiceId());
-            serviceListVO.setName(serviceDO != null ? serviceDO.getName() : "服务已下架");
-            serviceListVO.setId(serviceDO.getId());
-            serviceListVO.setUserServiceId(userServiceDO.getId());
-            serviceListVO.setQuantity(userServiceDO.getQuantity());
-        }
-
-        return HttpResponse.success(result);
+    public HttpResponse getUserService(@RequestHeader Long userId) {
+        return HttpResponse.success(userServiceFacade.getUserService(userId));
     }
     @GetMapping("/{id}")
     public HttpResponse geServiceById(@PathVariable Long id, Long userId) {
