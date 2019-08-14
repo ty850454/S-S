@@ -1,6 +1,7 @@
 package com.dreammakerteam.ss.api.service;
 
 import com.dreammakerteam.ss.api.dto.ServiceDTO;
+import com.dreammakerteam.ss.api.pojo.res.ServiceInsertReq;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,11 @@ import java.util.Optional;
  */
 public interface ServiceService {
 
+
+    Long insertService(ServiceInsertReq req);
+
+
+    void addToUsr(Long serviceId, Long userId);
 
     /**
      * 通过id获取服务

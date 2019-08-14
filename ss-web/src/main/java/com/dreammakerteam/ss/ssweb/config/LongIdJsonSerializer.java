@@ -1,4 +1,4 @@
-package com.dreammakerteam.ss.core.sdk.serializer;
+package com.dreammakerteam.ss.ssweb.config;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

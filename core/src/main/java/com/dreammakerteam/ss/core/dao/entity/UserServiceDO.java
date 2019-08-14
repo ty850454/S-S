@@ -1,6 +1,9 @@
 package com.dreammakerteam.ss.core.dao.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -19,6 +22,9 @@ import java.util.Date;
 @Setter
 @ToString
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "wx_userService", indexes = @Index(columnList="userId"))
 @org.hibernate.annotations.Table(appliesTo = "wx_userService", comment = "用户")
 public class UserServiceDO extends BaseDO {
@@ -32,9 +38,9 @@ public class UserServiceDO extends BaseDO {
     @Column(nullable = false, columnDefinition = "bigint(20) COMMENT '剩余服务次数'")
     private Integer quantity;
 
-    @Column(nullable = false, columnDefinition = "bigint(20) COMMENT '服务卡有效期开始'")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP COMMENT '服务卡有效期开始'")
     private Date startDate;
 
-    @Column(columnDefinition = "bigint(20) COMMENT '服务卡有效期截止'")
+    @Column(columnDefinition = "TIMESTAMP COMMENT '服务卡有效期截止'")
     private Date endDate;
 }

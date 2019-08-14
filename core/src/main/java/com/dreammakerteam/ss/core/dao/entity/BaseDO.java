@@ -1,8 +1,6 @@
 package com.dreammakerteam.ss.core.dao.entity;
 
 import com.dreammakerteam.ss.api.enums.ValidEnum;
-import com.dreammakerteam.ss.core.sdk.serializer.LongIdJsonSerializer;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

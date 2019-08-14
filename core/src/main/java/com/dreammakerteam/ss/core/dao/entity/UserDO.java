@@ -1,7 +1,10 @@
 package com.dreammakerteam.ss.core.dao.entity;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -18,6 +21,9 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "wx_user", indexes = @Index(columnList="openId"))
 @org.hibernate.annotations.Table(appliesTo = "wx_user", comment = "用户")

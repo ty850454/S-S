@@ -17,14 +17,10 @@ import java.util.Date;
 public class ServiceDTO extends BaseDTO {
 
     private String name;
-
     private String cover;
-
+    private Integer quantity;
     private String intro;
-
     private Long userId;
-
     private Date startDate;
-
     private Date endDate;
 }

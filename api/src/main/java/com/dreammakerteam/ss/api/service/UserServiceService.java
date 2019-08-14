@@ -12,7 +12,6 @@ import java.util.Optional;
  */
 public interface UserServiceService {
 
-
     /**
      * 通过id获取服务卡
      *

@@ -1,6 +1,9 @@
 package com.dreammakerteam.ss.core.dao.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -19,12 +22,18 @@ import java.util.Date;
 @Getter
 @ToString
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "wx_service", indexes = {@Index(columnList="userId")})
 @org.hibernate.annotations.Table(appliesTo = "wx_service", comment = "服务")
 public class ServiceDO extends BaseDO {
 
     @Column(nullable = false, columnDefinition = "varchar(255) COMMENT '服务名'")
     private String name;
+
+    @Column(nullable = false, columnDefinition = "bigint(20) COMMENT '默认服务次数'")
+    private Integer quantity;
 
     @Column(nullable = false, columnDefinition = "varchar(255) COMMENT '封面'")
     private String cover;
@@ -35,9 +44,9 @@ public class ServiceDO extends BaseDO {
     @Column(nullable = false, columnDefinition = "bigint(20) COMMENT '关联用户id，该服务发起人'")
     private Long userId;
 
-    @Column(nullable = false, columnDefinition = "bigint(20) COMMENT '服务开始日期'")
+    @Column(nullable = false, columnDefinition = "TIMESTAMP COMMENT '服务开始日期'")
     private Date startDate;
 
-    @Column(columnDefinition = "bigint(20) COMMENT '服务结束始日期'")
+    @Column(columnDefinition = "TIMESTAMP COMMENT '服务结束始日期'")
     private Date endDate;
 }

@@ -17,6 +17,8 @@ public class ServiceUseLogDTO extends BaseDTO {
     private Long userServiceId;
 
     private Long serviceId;
+    private String serviceName;
 
     private Long userId;
+    private String userNickname;
 }
