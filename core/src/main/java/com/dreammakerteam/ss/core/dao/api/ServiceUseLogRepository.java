@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ServiceUseRepository extends JpaRepository<ServiceUseLogDO, Long> {
+public interface ServiceUseLogRepository extends JpaRepository<ServiceUseLogDO, Long> {
 
     /**
      * 获取用户服务卡的使用记录

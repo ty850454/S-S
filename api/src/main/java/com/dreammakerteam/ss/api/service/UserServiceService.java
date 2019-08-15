@@ -38,5 +38,14 @@ public interface UserServiceService {
     List<UserServiceDTO> listByIds(List<Long> ids);
 
 
+    /**
+     * 使用服务卡，剩余次数减一，增加日志
+     *
+     * @param id 服务卡id
+     * @param userId 使用此卡的用户id
+     */
+    void use(Long id, Long userId);
+
+
 
 }

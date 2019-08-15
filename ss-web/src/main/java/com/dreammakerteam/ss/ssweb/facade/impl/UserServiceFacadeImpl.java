@@ -56,50 +56,12 @@ public class UserServiceFacadeImpl implements UserServiceFacade {
         UserServiceDTO userService = userServiceService.getById(id).orElseThrow(() -> new RuntimeException("服务不存在"));
         ServiceDTO service = serviceService.getById(userService.getServiceId()).orElseThrow(() -> new RuntimeException("服务不存在"));
         List<ServiceUseLogDTO> serviceUseLogs = serviceUseLogService.listByUserServiceId(service.getId());
-
-
-     /*   UserServiceDO one1 = userServiceDORepository.findById(id).orElse(null);
-        if (one1 == null) {
-            return HttpResponse.failure(HttpResponseCode.A_90010);
-        }
-        ServiceDO one = serviceDORepository.findById(one1.getServiceId()).orElse(null);
-        if (one == null) {
-            return HttpResponse.failure(HttpResponseCode.A_90010);
-        }
-
-        ServiceListVO serviceListVO = new ServiceListVO();
-        serviceListVO.setName(one.getName());
-        serviceListVO.setId(one.getId());
-        serviceListVO.setQuantity(one1.getQuantity());
-        serviceListVO.setUserServiceId(one1.getId());
-//        serviceListVO.setQrCode(WxHelper.getUnlimited("" + one1.getId(), "pages/scan/scan"));
-        return HttpResponse.success(serviceListVO);*/
-        return UserServiceVO.by(userService, service);
+        return UserServiceVO.by(userService, service, serviceUseLogs);
     }
 
 
     @Override
     public void useService(Long id, Long userId) {
-
-
-
-/*
-        UserServiceDO one = userServiceDORepository.findById(id).orElse(null);
-
-        if (one == null) {
-            return HttpResponse.failure(HttpResponseCode.A_90011);
-        }
-        if (one.getQuantity() <= 0) {
-            return HttpResponse.failure(HttpResponseCode.A_90012);
-        }
-        one.setQuantity(one.getQuantity() - 1);
-        userServiceDORepository.save(one);
-
-        ServiceUseLogDO log = new ServiceUseLogDO();
-        log.setUserServiceId(one.getId());
-        log.setServiceId(one.getServiceId());
-        log.setWxUserId(one.getWxUserId());
-        useLogDORepository.save(log);
-        return HttpResponse.success(null);*/
+        userServiceService.use(id, userId);
     }
 }

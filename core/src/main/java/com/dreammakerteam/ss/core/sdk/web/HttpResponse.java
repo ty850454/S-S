@@ -1,6 +1,8 @@
 package com.dreammakerteam.ss.core.sdk.web;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -45,7 +47,18 @@ public class HttpResponse<T> {
 
     @SuppressWarnings("unused")
     public static HttpResponse<?> failure(HttpResponseCode responseCode) {
-        return new HttpResponse<>();
+        HttpResponse<Object> response = new HttpResponse<>();
+        response.setCode(responseCode.getCode());
+        response.setMsg(responseCode.getMsg());
+        return response;
+    }
+
+    @SuppressWarnings("unused")
+    public static HttpResponse<?> failure(HttpResponseCode responseCode, Object... param) {
+        HttpResponse<Object> response = new HttpResponse<>();
+        response.setCode(responseCode.getCode());
+        response.setMsg(String.format(responseCode.getMsg(), param));
+        return response;
     }
 
 }
