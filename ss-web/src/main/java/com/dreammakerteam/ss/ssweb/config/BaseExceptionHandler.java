@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 @Slf4j
-public class BaseYlExceptionHandler {
+public class BaseExceptionHandler {
 
     /**
      * 处理其它异常

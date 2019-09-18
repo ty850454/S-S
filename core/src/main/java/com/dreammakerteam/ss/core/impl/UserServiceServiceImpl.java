@@ -51,15 +51,16 @@ public class UserServiceServiceImpl implements UserServiceService {
 
         ServiceDO service = serviceRepository.findById(userService.getServiceId()).orElseThrow(() -> new RuntimeException("服务不存在"));
         if (!service.getUserId().equals(userId)) {
+            // TODO 未使用统一异常
             throw new RuntimeException("这张卡不是您发放的，只可以扫描自己使用的卡片");
         }
-        // TODO 存在并发问题
+        // TODO 存在并发问题，加入redis分布式锁
 
         Integer quantity = userService.getQuantity();
         if (quantity <= 0) {
             throw new RuntimeException("剩余服务次数不足，无法使用");
         }
-        // TODO 过期检查
+        // TODO 过期检查，还要有每日定时任务
 
         userService.setQuantity(quantity - 1);
         userServiceRepository.save(userService);

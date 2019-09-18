@@ -6,7 +6,13 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 import java.io.IOException;
 
+/**
+ * json 序列化使用到，防止id太长前端无法处理
+ *
+ * @author xy
+ */
 public class LongIdJsonSerializer extends JsonSerializer {
+
     /**
      * Method that can be called to ask implementation to serialize
      * values of type this serializer handles.
