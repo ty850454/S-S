@@ -7,8 +7,10 @@ import com.dreammakerteam.ss.api.dto.UserServiceDTO;
 import com.dreammakerteam.ss.core.sdk.utils.DateUtil;
 import com.dreammakerteam.ss.ssweb.config.LongIdJsonSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -20,6 +22,8 @@ import java.util.stream.Collectors;
 @Getter
 @ToString
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserServiceVO {
 
     @JsonSerialize(using = LongIdJsonSerializer.class)

@@ -27,3 +27,5 @@ jwt:
     login: /auth/login    #登录地址
     refresh: /auth/refresh  #刷新token地址
     register: /auth/register  #注册的地址
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml

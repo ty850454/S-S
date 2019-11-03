@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://120.27.215.26:3306/testdb
+    username: testdb
+    password: ijBNDxmwPBywdDbi
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
