@@ -4,6 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
 
+/**
+ * websocket配置
+ *
+ * @author xy
+ */
 @Configuration
 public class WebSocketConfig {
 
